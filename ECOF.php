@@ -1,6 +1,4 @@
 <?php
-namespace App\Libraries\Form;
-
 /* ToDo:
  *
  * bayad kari kard ke input type hidden manande sayere
