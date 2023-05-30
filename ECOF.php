@@ -18,7 +18,7 @@ namespace App\Libraries\Form;
  *
  */
 
-class Form
+class ECOF
 {
 
     // style for input type text|email|password
