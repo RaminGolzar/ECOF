@@ -68,7 +68,8 @@ class ECOF
 
     /* -------------------------------------------------------------------------------- */
 
-    /** set heading tag for form tag
+    /**
+     * set heading tag for form tag
      *
      * @param string $titr
      * @param int $level - valid value is [1-6]
@@ -76,10 +77,10 @@ class ECOF
      * @return object
      */
     public function Heading (string $titr , bool $bold = true , int $headingLevel = 2 , string $fontSize = 'large' , string $color = ''): object {
-        // set text color
-        $color = ($color) ? "w3-text-$color" : null;
+        /* set text color */
+        $color = $color ? "w3-text-$color" : null;
 
-        // detect for bolding text
+        /* detect for bolding text */
         if ($bold) {
             $this->form .= "<h$headingLevel class='$color w3-section w3-block w3-center w3-$fontSize'><b>$titr</b></h$headingLevel>";
         } else {
@@ -89,7 +90,8 @@ class ECOF
         return $this;
     }
 
-    /** return row element for inputs form
+    /**
+     * return row element for inputs form
      *
      * @param string $content
      * @param bool $padding
@@ -101,7 +103,8 @@ class ECOF
         return "<section class='w3-margin-top w3-row'>$content</section>";
     }
 
-    /** generate input type text
+    /**
+     * generate input type text
      *
      * @param string $name - name and id attr
      * @param string $title - for label
@@ -110,13 +113,13 @@ class ECOF
      * @return object
      */
     public function text (string $name , string $title = '' , string $value = '' , string $placeholder = ''): object {
-        // set label
+        /* set label */
         $html = ($title) ? form_label ($title , $name) : null;
 
-        // set margin for input text
-        $class = ($title) ? 'w3-margin-bottom' : null;
+        /* set margin for input text */
+        $class = $title ? 'w3-margin-bottom' : null;
 
-        // set input text
+        /* set input text */
         $html .= form_input ($name , $value , "id='$name' class='$class $this->inputStyle w3-$this->inputBgColor' placeholder='$placeholder'");
 
         $this->form .= $this->row ($html);
@@ -124,7 +127,8 @@ class ECOF
         return $this;
     }
 
-    /** generate input type email
+    /**
+     * generate input type email
      *
      * @param string $name - name and id attr
      * @param string $title - for label
@@ -133,13 +137,13 @@ class ECOF
      * @return object
      */
     public function email (string $name , string $title = '' , string $value = '' , string $placeholder = ''): object {
-        // set label
+        /* set label */
         $html = ($title) ? form_label ($title , $name) : null;
 
-        // set margin for input text
+        /* set margin for input text */
         $class = ($title) ? 'w3-margin-bottom' : null;
 
-        // set input email
+        /* set input email */
         $html .= form_input ($name , $value , "id='$name' class='$class $this->inputStyle w3-$this->inputBgColor' placeholder='$placeholder'" , 'email');
 
         $this->form .= $this->row ($html);
@@ -147,7 +151,8 @@ class ECOF
         return $this;
     }
 
-    /** generate input type password
+    /**
+     * generate input type password
      *
      * @param string $name - name and id attr
      * @param string $title - for label
@@ -156,13 +161,13 @@ class ECOF
      * @return object
      */
     public function password (string $name , string $title = '' , string $value = '' , string $placeholder = ''): object {
-        // set label
+        /* set label */
         $html = ($title) ? form_label ($title , $name) : null;
 
-        // set margin for input text
+        /* set margin for input text */
         $class = ($title) ? 'w3-margin-bottom' : null;
 
-        // set input password
+        /* set input password */
         $html .= form_password ($name , $value , "id='$name' class='$class $this->inputStyle w3-$this->inputBgColor' placeholder='$placeholder'");
 
         $this->form .= $this->row ($html);
@@ -170,7 +175,8 @@ class ECOF
         return $this;
     }
 
-    /** generate input type submit
+    /**
+     * generate input type submit
      *
      * submit param discription:
      *      1- array key is input name + space + button color that
@@ -184,8 +190,10 @@ class ECOF
     public function submit (array $submit , array $attr = [] , string $align = ''): object {
         $html = '';
 
-        // ------------------------------------------------------------
-        // concat user class to built-in class (set_button_style method)
+        /* ----------------------------------------------------------------------
+         * concat user class to built-in class (set_button_style method)
+         * ----------------------------------------------------------------------
+         */
 
         $class = (string) '';
         if (key_exists ('class' , $attr)) {
@@ -193,8 +201,11 @@ class ECOF
             unset ($attr['class']);
         }
 
-        // ------------------------------------------------------------
-        // concat attr array to string for helper method
+
+        /* ----------------------------------------------------------------------
+         * concat attr array to string for helper method
+         * ----------------------------------------------------------------------
+         */
 
         $strAttr = (string) '';
 
@@ -202,8 +213,11 @@ class ECOF
             $strAttr .= "$k='$v' ";
         }
 
-        // ------------------------------------------------------------
-        // create submit & link button and set attr
+
+        /* ----------------------------------------------------------------------
+         * create submit & link button and set attr
+         * ----------------------------------------------------------------------
+         */
 
         foreach ($submit as $k => $v) {
             $key = explode (' ' , $k);
@@ -219,15 +233,19 @@ class ECOF
             }
         }
 
-        // ------------------------------------------------------------
-        // output & result
+
+        /* ----------------------------------------------------------------------
+         * output & result
+         * ----------------------------------------------------------------------
+         */
 
         $this->form .= $this->row ($html);
 
         return $this;
     }
 
-    /** genetate link button
+    /**
+     * return a link tag that looks like a button
      *
      * @param string $url
      * @param string $title
@@ -240,7 +258,8 @@ class ECOF
         return anchor ($url , $title , "class='$class'");
     }
 
-    /** set button style, for submit method
+    /**
+     * set button style, for submit method
      *
      * @param string $align
      * @param string $submitName - because contain name & color, extract color from name
@@ -260,12 +279,12 @@ class ECOF
             $buttonStyle .= " w3-margin-left";
         }
 
-        // set alignment
+        /* set alignment */
         if ($align) {
             $buttonStyle .= " w3-$align";
         }
 
-        // set button color
+        /* set button color */
         if (count ($ex = explode (' ' , $submitName)) == 2) {
             $buttonStyle .= " w3-$ex[1] w3-hover-$ex[1]";
         } else {
@@ -275,7 +294,8 @@ class ECOF
         return $buttonStyle;
     }
 
-    /** generate input type checkbox
+    /**
+     * generate input type checkbox
      *
      * @param string $name - name and id attr
      * @param string $title - for label
@@ -292,7 +312,8 @@ class ECOF
         return $this;
     }
 
-    /** generate input type radio
+    /**
+     * generate input type radio
      *
      * @param string $name - name and id attr
      * @param string $title - for label
@@ -309,7 +330,8 @@ class ECOF
         return $this;
     }
 
-    /** generate input type select (drop down)
+    /**
+     * generate input type select (drop down)
      *
      * @param string $name - name & id attr
      * @param string $title
@@ -327,13 +349,13 @@ class ECOF
     }
 
     public function textarea (string $name , string $title = '' , string $value = '' , string $placeholder = ''): object {
-        // set label
+        /* set label */
         $html = ($title) ? form_label ($title , $name) : null;
 
-        // set margin for input text
+        /* set margin for input text */
         $class = ($title) ? 'w3-margin-bottom' : null;
 
-        // set textarea
+        /* set textarea */
         $html .= form_textarea ($name , $value , "id='$name' class='$class $this->inputStyle w3-$this->inputBgColor' placeholder='$placeholder' style='height: 110px; resize: vertical;'");
 
         $this->form .= $this->row ($html , false , true);
@@ -341,7 +363,8 @@ class ECOF
         return $this;
     }
 
-    /** return a input hidden
+    /**
+     * return a input hidden
      *
      * @param string $name
      * @param string $value
@@ -354,7 +377,10 @@ class ECOF
         return $this;
     }
 
-    /** load and get complete html form result
+    /**
+     * return the elements of the form along
+     * with the form tag
+     *
      * finally methid in work
      *
      * @param string $action
@@ -362,7 +388,7 @@ class ECOF
      * @return string
      */
     public function get_form (bool $style = true , string $action = '' , array $attr = ['method' => 'post' ,]): string {
-        // add style to form tag
+        /* add style to form tag */
         if ($style) {
             $attr['class'] = $this->form_style ();
         }
@@ -371,13 +397,14 @@ class ECOF
         $htmlForm .= $this->form;
         $htmlForm .= form_close ();
 
-        // empty form property for next use
+        /* empty form property for next use */
         $this->form = '';
 
         return $htmlForm;
     }
 
-    /** set form style, use in get_form method
+    /**
+     * set form style, use in get_form method
      *
      * @return string
      */
@@ -394,7 +421,8 @@ class ECOF
     }
 
     /**
-     * return inputs form and not return form tag
+     * return form elements without form tag
+     *
      * finally methid in work
      *
      * @return string
@@ -402,7 +430,7 @@ class ECOF
     public function get (): string {
         $inputs = $this->form;
 
-        // empty form property for next use
+        /* empty form property for next use */
         $this->form = '';
 
         return $inputs;
