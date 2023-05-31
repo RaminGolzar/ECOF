@@ -1,12 +1,13 @@
 <?php
-/* this class required form helper
- *
- */
 
 class ECOF
 {
 
-    // style for input type text|email|password
+    /**
+     * style for input type text | email | password
+     *
+     * @var type
+     */
     private $inputStyle = "w3-input w3-border w3-round w3-margin-top";
 
     /**
@@ -15,20 +16,57 @@ class ECOF
      * @var string
      */
     public string $inputBgColor = 'white';
-    // style for input type select
-    private $dropdownStyle = 'w3-margin-top w3-select w3-round w3-border';
-    // contain complette html form
-    private $form = '';
-    // ------------------------------------------------------------
-    // properties for form tag style
 
+    /**
+     * style for input type select
+     *
+     * @var type
+     */
+    private $dropdownStyle = 'w3-margin-top w3-select w3-round w3-border';
+
+    /**
+     * contain complette html form
+     *
+     * @var type
+     */
+    private $form = '';
+
+    /**
+     * Holds the background color of the form
+     *
+     * @var string
+     */
     public string $formBgColor = '';
+
+    /**
+     * Whether the form has border or not
+     *
+     * @var bool
+     */
     public bool $formBorder = false;
+
+    /**
+     * Whether the corner of the form are rounded or not
+     *
+     * @var bool
+     */
     public bool $formRound = false;
+
+    /**
+     * Whether the form has padding or not
+     *
+     * @var bool
+     */
     public bool $formPadding = true;
+
+    /**
+     * Whether the form has margin or not
+     *
+     * @var bool
+     */
     public bool $formMargin = false;
 
-    // ============================================================
+    /* -------------------------------------------------------------------------------- */
 
     /** set heading tag for form tag
      *
