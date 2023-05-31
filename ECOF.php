@@ -1,17 +1,4 @@
 <?php
-/* ToDo:
- *
- * bayad kari kard ke input type hidden manande sayere
- * input ha dar yek section tag jasaz shavad
- *
- * background color dar submit link ha kar nemikonad
- *
- * set kardane action haye motefavet baraye submit haye (yek) form
- *
- * This entity is related to the mingifire icon, which is very
- * useful for submit input. -> &#128269;
- */
-
 /* this class required form helper
  *
  */
@@ -30,7 +17,7 @@ class ECOF
     public string $inputBgColor = 'white';
     // style for input type select
     private $dropdownStyle = 'w3-margin-top w3-select w3-round w3-border';
-    o// contain complette html form
+    // contain complette html form
     private $form = '';
     // ------------------------------------------------------------
     // properties for form tag style
@@ -75,23 +62,6 @@ class ECOF
     private function row (string $content): string {
         return "<section class='w3-margin-top w3-row'>$content</section>";
     }
-
-    /* ToDo:
-     * bayad emkani faraham shavad ta betavan yek content ra
-     * as har type va noei ke bashad ra niz be result ezafe kard
-     * masalan yek link ya yek ask ya ...
-     */
-
-    /* ToDo:
-     * faraham kardane afzudane har attr kharej as parametr haye tarif
-     * shodeh hala in attr value dashte bashad ya manande check
-     * nadashte bashad
-     */
-
-    /* ToDo:
-     * bayad emkani faraham kard ke betavan null value be attr value
-     * input ha ekhtesas dad.
-     */
 
     /** generate input type text
      *
@@ -161,12 +131,6 @@ class ECOF
 
         return $this;
     }
-
-    /* ToDo:
-     * bayad kari kard ke betavan baraye har submit yek action
-     * mojaza tarif kard baraye zamani ke chand submit dar yek form
-     * vojud darad.
-     */
 
     /** generate input type submit
      *
@@ -352,10 +316,6 @@ class ECOF
         return $this;
     }
 
-    /* ToDo:
-     * Should fix submit linkable background
-     */
-
     /** load and get complete html form result
      * finally methid in work
      *
@@ -411,29 +371,3 @@ class ECOF
     }
 
 }
-
-/* TODO:
- *      + dar zamani ke ba submit() method yek link button
- *         sakhte mishavad bgColor an moshkel darad.
- *
- *      + faraham kardane emkane 2 sotune shodane field ha
- *
- *      1- create form method
- *            (action, attr, heading, fieldset, border)
- *
- *      2- bayad method haye text & password ba
- *            parametr haye array kar konad ta betavan ba yek
- *            fara khavani chand input eijad kard.
- *
- *      3- create module for generate search form (pro)
- *
- *      4- vaghti ke dar dakhele yek table yek submit gharar
- *            dahim be dalile margin dashtan zahere badi peyda
- *            mikonad.
- *
- *      5- faraham kardane emkani baraye eijad tonde form hayi
- *            ke faghat shamele hidden va buttons bashad
- *
- *      6- faraham kardane emkane nemayeshe error message
- *            dar zire input ha
- */
