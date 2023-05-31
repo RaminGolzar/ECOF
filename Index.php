@@ -1,5 +1,19 @@
 <?php
-require_once './ECOF.php';
+namespace ECOF;
 
-$edof = new ECOF();
+use ECOF\ECOF;
 
+class Index
+{
+
+    public object $ecof;
+
+    public function __construct () {
+        $this->ecof = new ECOF();
+
+        $this->ecof->formBgColor
+    }
+
+}
+
+//$ecof = new \ECOF\ECOF();
