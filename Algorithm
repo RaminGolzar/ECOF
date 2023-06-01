@@ -1,0 +1,18 @@
+--------------------------------------------------
+    STYLE
+--------------------------------------------------
+
+1) tag ha bayad ye style w3 dashte bashan
+2) emkane ignore kardan koli ya entekhabi
+3) nesbat dadane yek class style vojud dashte bashad
+4) The possibility of the customizing style
+
+--------------------------------------------------
+    CLASSES
+--------------------------------------------------
+    
+    1) A class for external use
+    2) A base class that includes all facilities
+    3) A class for style management
+    4) A class for tags management
+    5) A class for attributes management
